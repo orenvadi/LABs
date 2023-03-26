@@ -154,4 +154,7 @@ x, y = data.T
 plt.scatter(x, y)
 plt.ylabel("Скорость выполнения в секундах")
 plt.xlabel("Запуски программы сортировки")
-plt.show()
+# plt.show()
+plt.savefig("matplotlib.png")  # savefig, don't show
+
+
