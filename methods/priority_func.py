@@ -1,8 +1,17 @@
+from .wrappers_memory import profile
 from .wrappers_speed import speedometer
 
 
 @speedometer
 def priority_sort(nums: list[int]):
+    queue = []
+    for num in nums:
+        q_insert(queue, num)
+    nums = queue
+
+
+@profile
+def priority_sortMem(nums: list[int]):
     queue = []
     for num in nums:
         q_insert(queue, num)

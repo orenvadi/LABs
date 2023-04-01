@@ -1,3 +1,4 @@
+from .wrappers_memory import profile
 from .wrappers_speed import speedometer
 
 # Реализация пирамидальной сортировки на Python
@@ -30,6 +31,20 @@ def heapify(arr, n, i):
 # Основная функция для сортировки массива заданного размера
 @speedometer
 def heapSort(arr):
+    n = len(arr)
+
+    # Построение max-heap.
+    for i in range(n, -1, -1):
+        heapify(arr, n, i)
+
+    # Один за другим извлекаем элементы
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # свап
+        heapify(arr, i, 0)
+
+
+@profile
+def heapSortMem(arr):
     n = len(arr)
 
     # Построение max-heap.

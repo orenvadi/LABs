@@ -21,6 +21,8 @@ def remove_after_max(nums: list[int]):
         if i != ind_max + 1:  # elem after max
             k += 1
             nums[k] = nums[i]
+            print(nums)
+    print(nums)
     del nums[-1]
     return len(nums)
 

@@ -4,6 +4,7 @@ Note that this program works only when size of input is a power of 2.
 """
 from __future__ import annotations
 
+from .wrappers_memory import profile
 from .wrappers_speed import speedometer
 
 
@@ -69,6 +70,15 @@ def bitonic_sort(array: list[int], low: int, length: int, direction: int) -> Non
     >>> arr
     [145, 92, 34, 12, 0, -23, -121, -167]
     """
+    if length > 1:
+        middle = int(length / 2)
+        bitonic_sort(array, low, middle, 1)
+        bitonic_sort(array, low + middle, middle, 0)
+        bitonic_merge(array, low, length, direction)
+
+
+@profile
+def bitonic_sortMem(array: list[int], low: int, length: int, direction: int) -> None:
     if length > 1:
         middle = int(length / 2)
         bitonic_sort(array, low, middle, 1)
