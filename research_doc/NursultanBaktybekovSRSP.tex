@@ -1,7 +1,7 @@
 \input{Preambule_course_work.tex}
 
 \title{Анализ и сравнение алгоритмов сортировки}
-\author{Бактыбеков Нурсултан}
+\author{Бактыбеков Н.Б.}
 
 \begin{document}
 \input{title/title.tex}
@@ -13,15 +13,472 @@
 \setcounter{page}{1}
 
 \newpage
-\addcontentsline{toc}{section}{Введение}
+\addcontentsline{toc}{section}{Индивидуальное задание}
 
-\section*{Введение}
 
-\textbf{Ввод в экскурс}
-Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
-Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+\section*{Индивидуальное задание}
+
+Решить 3 задачи
+
+\textbf{Задача 1}
+
+Удалить из массива элемент, расположенный после максимального элемента. Если удаление элемента невозможно, выдать об этом сообщение.
+
+
+
+\textbf{Задача 2}
+
+Вставить заданное значение после каждого элемента массива, расположенного до первого нулевого элемента. Если вставка элементов невозможна, выдать об этом сообщение.
+
+
+
+\textbf{Задача 3}
+
+Реализовать алгоритм трех методов сортировки:
+
+\begin{enumerate}
+    \item Сортировка Бэтчера
+    \item Сортировка на основе приоритетных очередей
+    \item Сортировка Пирамидой
+\end{enumerate}
+
+Сравнить эти три сортировки по критериям:
+
+\begin{enumerate}
+    \item Скорость выполнения
+    \item Потребление памяти
+\end{enumerate}
+
+Решить каждую задачу в отдельной программе. Реализовать программу средствами языка программирования Python.
+
+
+
+
+
+
+\section{Задача 1}
+\subsection{Условие задачи}
+
+Удалить из массива элемент, расположенный после максимального элемента. Если удаление элемента невозможно, выдать об этом сообщение.
+
+\subsection{Постановка задачи}
+\textbf{Входные данные:}
+
+arr - массив из N элементов.
+
+\textbf{Выходные данные:}
+
+arr - результирующий массив из N-1 элементов.
+
+\textbf{Условия и ограничения:}
+
+Задание не может быть выполнено, если в массиве последний элемент является минимальным.
+
+
+
+\subsection{Описание алгоритма}
+
+Алгоритм задачи 1 описан в следующей блок-схеме:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./flowcharts/first_task.drawio.png}
+    \caption{Блок схема Задание 1}
+\end{figure}
+
+
+\subsection{Контрольные примеры}
+\begin{enumerate}
+    \item a=[1, 5, 6, 2, 3, 4, 5, 9, 6, 7, 8]\\ new a=[1, 5, 6, 2, 3, 4, 5, 9, 7, 8]
+    \item b=[8, 3, 6, 2, 3, 4, 5, 9, 3, 7, 2]\\ new b=[8, 3, 6, 2, 3, 4, 5, 9, 7, 2]
+    \item Максимальный последний \\ c=[3, 8, 2, 7, 3, 5, 4, 1, 2, 0, 9]\\ new c=[3, 8, 2, 7, 3, 5, 4, 1, 2, 0, 9]
+\end{enumerate}
+
+
+\subsection{Реализация решения задачи}
+
+Реализация задачи 1 оформлена ввиде функции в программе first-task.py
+
+
+\subsection{Исходный код программы}
+
+\lstinputlisting[language = python]{../two_tasks/first.py}
+
+\subsection{Результаты работы программы}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./flowcharts/first_task.png}
+    \caption{Блок схема Задание 1}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Задача 2}
+
+
+\subsection{Условие задачи}
+
+Вставить заданное значение после каждого элемента массива, расположенного до первого нулевого элемента. Если вставка элементов невозможна, выдать об этом сообщение.
+
+\subsection{Постановка задачи}
+\textbf{Входные данные:}
+
+arr - массив из N элементов.
+val - число которое нужно вставить
+
+\textbf{Выходные данные:}
+
+arr - результирующий массив из N+индекс-нуля элементов.
+
+\textbf{Условия и ограничения:}
+
+Задание не может быть выполнено, если в массиве первый элемент является нулевым.
+
+
+
+\subsection{Описание алгоритма}
+
+Алгоритм задачи 2 описан в следующей блок-схеме:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./flowcharts/second_task.drawio.png}
+    \caption{Блок схема Задание 2}
+\end{figure}
+
+
+\subsection{Контрольные примеры}
+\begin{enumerate}
+    \item a=[1, 5, 6, 0, 3, 4, 5, 9, 6, 7, 8] \\ new a=[1, 10, 5, 10, 6, 10, 0, 3, 4, 5, 9, 6, 7, 8]                                                                        
+    \item b=[8, 3, 6, 2, 3, 4, 5, 0, 3, 7, 2] \\ new b=[8, 10, 3, 10, 6, 10, 2, 10, 3, 10, 4, 10, 5, 10, 0, 3, 7, 2]
+    \item Первый элемент = 0 \\ c=[0, 8, 2, 7, 3, 5, 4, 1, 2, 0, 9] \\ new c=[0, 8, 2, 7, 3, 5, 4, 1, 2, 0, 9]
+
+\end{enumerate}
+
+
+\subsection{Реализация решения задачи}
+
+Реализация задачи 2 оформлена ввиде функции в программе second-task.py
+
+
+\subsection{Исходный код программы}
+
+\lstinputlisting[language = python]{../two_tasks/second.py}
+
+\subsection{Результаты работы программы}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./flowcharts/second_task.png}
+    \caption{Запуск программы Задание 2}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Задача 3}
+
+\subsection{Условие задачи}
+
+
+Реализовать алгоритм трех методов сортировки:
+
+\begin{enumerate}
+    \item Сортировка Бэтчера
+    \item Сортировка на основе приоритетных очередей
+    \item Сортировка Пирамидой
+\end{enumerate}
+
+Сравнить эти три сортировки по критериям:
+
+\begin{enumerate}
+    \item Скорость выполнения
+    \item Потребление памяти
+\end{enumerate}
+
+Решить каждую задачу в отдельной программе. Реализовать программу средствами языка программирования Python.
+
+\subsection{Постановка задачи}
+
+\textbf{Входные данные:}
+
+arr – cписок типа list, заполненный случайным образом
+
+\textbf{Выходные данные:}
+V – Скорость выполнения
+M – Максимум расходуемой памяти
+arr – отсортированный список
+
+
+\subsection{Описание алгоритмов}
+
+\textbf{Блок-схема подпрограммы сортировки Бэтчера:}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./flowcharts/barcher.drawio.png}
+    \caption{Сортировка Бэтчера}
+\end{figure}
+
+
+\textbf{Код программы с сортировкой Бэтчера}
+\lstinputlisting[language = python]{../methods/batcher.py}
+
+
+
+
+\textbf{Блок-схема подпрограммы сортировки Приоритетных очередей:}
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./flowcharts/priority.drawio.png}
+    \caption{Сортировка на основе Приоритетных очередей}
+\end{figure}
+
+\textbf{Код программы с сортировкой на основе Приоритетных очередей}
+\lstinputlisting[language = python]{../methods/priority_func.py}
+
+
+
+% \newpage
+\textbf{Блок-схема подпрограммы сортировки Пирамидой:}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./flowcharts/pyramid.drawio.png}
+    \caption{Запуск программы Задание 2}
+\end{figure}
+
+\textbf{Код программы с сортировкой Пирамидой}
+\lstinputlisting[language = python]{../methods/pyramid.py}
+
+
+
+\subsection{Контрольные примеры}
+\textbf{Входные данные:}
+ls: list[list[int]] список содержащий списки длиной 128 содержащие числа
+
+\textbf{Выходные данные}
+отсортированный массив, скорость выполнения, потребление памяти
+
+
+
+\subsection{Реализация решения задачи}
+
+Решение задачи 3 оформлено в виде трех программ: table.py, main.py, memory-usege.py. Программы используют три подпрограммы для выполнения сортировки: batcher-sort, priority-sort, pyramid-sort.
+
+
+\subsection{Построение таблицы}
+
+
+Программа 1 импортирует 3 подпрограммы сортировки и строит таблицу значений скорости и потребления памяти для трех алгоритмов сортировки
+
+\textbf{Исходный код Программы 1}
+
+\lstinputlisting[language = python]{../tables.py}
+
+
+\textbf{Таким образом были построены таблицы:}
+
+
+\input{./tables/batcher_table.tex}
+
+\input{./tables/priority_table.tex}
+
+\input{./tables/pyramid_table.tex}
+
+Для их построения каждая программа сортировки отсортировала массив длиной 128 заполненный случайными числами от 0 до 127, 40 раз
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Скорость работы алгоритмов}
+
+
+
+Программа 2 импортирует 3 подпрограммы сортировки и строит графики для трех алгоритмов сортировки.
+
+По оси х Запуски программ
+
+По оси у Скорость выполнения 
+
+\textbf{Исходный код Программы 2}
+
+\lstinputlisting[language = python]{../main.py}
+
+
+\newpage
+\textbf{Таким образом были построены графики:}
+
+\textit{Скорость выполнения сортировки Бэтчера}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./plots/batcher_speed.png}
+    \caption{График сортировки Бэтчера}
+\end{figure}
+
+
+\textit{Скорость выполнения сортировки на основе приоритетных очередей в сравнении с сортировкой Бэтчера}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./plots/priority_speed.png}
+    \caption{График сортировки Приоритетных очередей}
+\end{figure}
+
+
+
+\textit{Скорость выполнения сортировки Пирамидой в сравнении с остальными двумя сортировками}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./plots/bitonic_speed.png}
+    \caption{График сортировки Пирамидой}
+\end{figure}
+
+
+
+
+
+
+
+
+\subsection{Потребление памяти алгоритмов}
+
+
+
+
+
+
+Программа 3 импортирует 3 подпрограммы сортировки и строит графики для трех алгоритмов сортировки.
+
+По оси х Запуски программ
+
+По оси у Потребление памяти
+
+\textbf{Исходный код Программы 3}
+
+\lstinputlisting[language = python]{../memory_usage.py}
+
+
+\newpage
+\textbf{Таким образом были построены графики:}
+
+\textit{Потребление памяти сортировки Бэтчера}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./plots/batcher_memory.png}
+    \caption{График сортировки Бэтчера}
+\end{figure}
+
+
+\textit{Потребление памяти сортировки на основе приоритетных очередей в сравнении с сортировкой Бэтчера}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./plots/priority_memory.png}
+    \caption{График сортировки Приоритетных очередей}
+\end{figure}
+
+
+
+\textit{Потребление памяти сортировки Пирамидой в сравнении с остальными двумя сортировками}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./plots/bitonic_memory.png}
+    \caption{График сортировки Пирамидой}
+\end{figure}
+
+\section{Выводы по трем алгоритмам}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \input{tables/batcher_table.tex}
+
+
 
 \end{document}

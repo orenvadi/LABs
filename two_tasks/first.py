@@ -15,18 +15,29 @@ def remove_after_max(nums: list[int]):
             val_max = num
             ind_max = ind
 
+    if ind_max == len(nums) - 1:
+        print("max is last element, impossible to remove")
+        return -1
+
     k = -1
 
     for i in range(0, len(nums)):
         if i != ind_max + 1:  # elem after max
             k += 1
             nums[k] = nums[i]
-            print(nums)
-    print(nums)
     del nums[-1]
     return len(nums)
 
 
 a = [1, 5, 6, 2, 3, 4, 5, 9, 6, 7, 8]
+b = [8, 3, 6, 2, 3, 4, 5, 9, 3, 7, 2]
+c = [3, 8, 2, 7, 3, 5, 4, 1, 2, 0, 9]
+print(f"{a=}")
 remove_after_max(a)
-print(a)
+print(f"new a={a}")
+print(f"{b=}")
+remove_after_max(b)
+print(f"new b={b}")
+print(f"{c=}")
+remove_after_max(c)
+print(f"new c={c}")

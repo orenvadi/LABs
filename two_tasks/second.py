@@ -5,26 +5,22 @@
 """
 
 
-def find_index(arr, element):
+def find_zero(arr):
     for i, e in enumerate(arr):
-        if e == element:
+        if e == 0:
             return i
 
 
 def insert_before_zero(val, arr: list):
-    if 0 not in arr:
+    if 0 not in arr or arr[0] == 0:
         print("Error: no zero element found")
         return arr
 
-    zero_found = 0
     c = 0
 
-    for ind, elem in enumerate(arr[: find_index(arr, 0)]):
-        if zero_found < 1:
-            c += 1
-            insert_element(arr, ind + c, val)
-        if elem == 0:
-            zero_found += 1
+    for ind, elem in enumerate(arr[: find_zero(arr)]):
+        c += 1
+        insert_element(arr, ind + c, val)
 
     return arr
 
@@ -37,9 +33,21 @@ def insert_element(lst, index, element):
     return lst
 
 
-arr = [1, 2, 3, 0, 4, 5, 6, 0, 7, 8, 9]
 val = 10
+a = [1, 5, 6, 0, 3, 4, 5, 9, 6, 7, 8]
 
+print(f"{a=}")
+a = insert_before_zero(val, a)
+print(f"new a={a}")
 
-result = insert_before_zero(val, arr)
-print(result)  # Output: [1, 10, 2, 10, 3, 10, 0, 4, 5, 6, 0, 7, 8, 9]
+b = [8, 3, 6, 2, 3, 4, 5, 0, 3, 7, 2]
+
+print(f"{b=}")
+b = insert_before_zero(val, b)
+print(f"new b={b}")
+
+c = [0, 8, 2, 7, 3, 5, 4, 1, 2, 0, 9]
+
+print(f"{c=}")
+c = insert_before_zero(val, c)
+print(f"new c={c}")
