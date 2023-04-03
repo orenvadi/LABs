@@ -12,19 +12,23 @@ from methods.batcher import bitonic_sort
 from methods.priority_func import priority_sort
 from methods.pyramid import heapSort
 
-arr = list(range(128))
+arr = list(range(4))
 arr = array("i", arr)  # 'i' - signed int
 
 ls = []
 
-for i in range(300):
+for i in range(10):
     random.shuffle(arr)
     ls.append(arr)
+    ln_arr = len(arr)
+    arr.extend(list(range(ln_arr, ln_arr * 2)))
 
 
 colors = ["batcher:blue", "priority:orange", "pyramid:green"]
 ####################################### Batcher Sort #############################################
-exec_speeds_bitonic = [[i, bitonic_sort(ls[i], 0, 128, 1)] for i in range(100)]  # works
+exec_speeds_bitonic = [
+    [2 ** (i + 2), bitonic_sort(ls[i], 0, len(ls[i]), 1)] for i in range(10)
+]  # works
 
 
 data = np.array(exec_speeds_bitonic)
@@ -40,15 +44,28 @@ plt.scatter(
     edgecolors="none",
 )
 plt.ylabel("Скорость выполнения в секундах")
-plt.xlabel("Запуски программы сортировки")
+plt.xlabel("Длина сортируемого массива")
 plt.legend()
 # plt.show()
-plt.savefig("research_doc/plots/batcher_speed.png", dpi=400)  # savefig, don't show
+plt.savefig(
+    "research_doc/plots/batcher_speed_delta.png", dpi=400
+)  # savefig, don't show
 ####################################### Batcher Sort #############################################
+
+arr = list(range(4))
+arr = array("i", arr)  # 'i' - signed int
+
+ls = []
+
+for i in range(10):
+    random.shuffle(arr)
+    ls.append(arr)
+    ln_arr = len(arr)
+    arr.extend(list(range(ln_arr, ln_arr * 2)))
 
 ####################################### Priority Sort #############################################
 exec_speeds_priority = [
-    [i, priority_sort(ls[i + 100])] for i in range(100)
+    [2 ** (i + 2), priority_sort(ls[i])] for i in range(10)
 ]  # for heapSort only
 
 data = np.array(exec_speeds_priority)
@@ -63,14 +80,27 @@ plt.scatter(
     edgecolors="none",
 )
 plt.ylabel("Скорость выполнения в секундах")
-plt.xlabel("Запуски программы сортировки")
+plt.xlabel("Длина сортируемого массива")
 plt.legend()
 # plt.show()
-plt.savefig("research_doc/plots/priority_speed.png", dpi=400)  # savefig, don't show
+plt.savefig(
+    "research_doc/plots/priority_speed_delta.png", dpi=400
+)  # savefig, don't show
 ####################################### Priority Sort #############################################
 
+arr = list(range(4))
+arr = array("i", arr)  # 'i' - signed int
+
+ls = []
+
+for i in range(10):
+    random.shuffle(arr)
+    ls.append(arr)
+    ln_arr = len(arr)
+    arr.extend(list(range(ln_arr, ln_arr * 2)))
+
 ####################################### Pyramid Sort #############################################
-exec_speeds_heap = [[i, heapSort(ls[i + 200])] for i in range(100)]  # works
+exec_speeds_heap = [[2 ** (i + 2), heapSort(ls[i])] for i in range(10)]  # works
 
 data = np.array(exec_speeds_heap)
 
@@ -84,8 +114,10 @@ plt.scatter(
     edgecolors="none",
 )
 plt.ylabel("Скорость выполнения в секундах")
-plt.xlabel("Запуски программы сортировки")
+plt.xlabel("Длина сортируемого массива")
 plt.legend()
 # plt.show()
-plt.savefig("research_doc/plots/bitonic_speed.png", dpi=400)  # savefig, don't show
+plt.savefig(
+    "research_doc/plots/bitonic_speed_delta.png", dpi=400
+)  # savefig, don't show
 ####################################### Pyramid Sort #############################################
