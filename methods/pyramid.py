@@ -14,15 +14,18 @@ def heapify(arr, n, i):
     # check if exists left child elem > root
 
     if l < n and arr[i] < arr[l]:
+        # print(arr)
         largest = l
 
     # check if exists right child elem > root
 
     if r < n and arr[largest] < arr[r]:
+        # print(arr)
         largest = r
 
     # replace root if needed
     if largest != i:
+        print(arr)
         arr[i], arr[largest] = arr[largest], arr[i]  # свап
 
         # heapify to root.

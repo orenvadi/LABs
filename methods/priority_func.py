@@ -7,6 +7,7 @@ def priority_sort(nums: list[int]):
     queue = []
     for num in nums:
         q_insert(queue, num)
+        print(queue)
     nums = queue
 
 

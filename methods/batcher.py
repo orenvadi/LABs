@@ -31,6 +31,7 @@ def bitonic_merge(array: list[int], low: int, length: int, direction: int) -> No
     if length > 1:
         middle = int(length / 2)
         for i in range(low, low + middle):
+            print(array)
             comp_and_swap(array, i, i + middle, direction)
         bitonic_merge(array, low, middle, direction)
         bitonic_merge(array, low + middle, middle, direction)
