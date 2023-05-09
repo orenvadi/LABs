@@ -3,7 +3,7 @@ import random
 # for fast arrays
 from array import array
 
-from prettytable import PrettyTable
+# from prettytable import PrettyTable
 # for table
 from tabletexifier import Table
 
